@@ -1,5 +1,6 @@
 package com.fsouoliveira.todolist.task;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,9 @@ public class TaskController {
     private ITaskRepository taskRepository;
 
     @PostMapping("/")
-    public ResponseEntity create(@RequestBody TaskModel taskModel, HttpServletResponse request) {
-
+    public ResponseEntity create(@RequestBody TaskModel taskModel, HttpServletRequest request) {
+        var idUser = request.getAttribute("idUser");
+        taskModel.setIdUser((UUID) idUser);
 
         if (taskModel.getIdUser() == null) {
             taskModel.setIdUser(UUID.randomUUID());
