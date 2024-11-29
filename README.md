@@ -1,4 +1,3 @@
-Feel free to customize the content to reflect your application's specific details, such as the repository link and any additional features or instructions. ```markdown
 # Todo List Application
 
 A simple Todo List application built with Spring Boot. This application allows users to register, log in, and manage their tasks efficiently. 
